@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA FINANCEIRA</title>
+</head>
+<body>
+    em quanto esta tabelado o kW/h em sua cidade<input id="preco_por_kwh"><br>
+    quantos dias na semana a empresa esta ativa?<input id="diasATIVOS"><br>
+    quantas horas no dia a empresa esta ativa?<input id="horas_por_dia"><br>
+
+    quantas lampadas sua empresa possui por sala? <input id="quantidade_de_lampadas"><br>
+    quantas salas sua empresa possui? <input id="salas"><br>
+    qual potencia da lampada?(em Watts) <input id="potencia"><br>
+    
+    <div id="exibir"></div><br>
+    <div id="lucro"></div>
+    <div id="verificacao"></div>
+    <button onclick="efetuar()"> calcular </button>
+    
+</body>
+</html>
+<script>
+    function efetuar() {
+        exibir.innerHTML =``
+        lucro.innerHTML =``
+
+
+        var Pp_KW = Number(preco_por_kwh.value)
+        var diasAtivos_semana = Number(diasATIVOS.value)
+        var Horas_pDia = Number(horas_por_dia.value)
+
+        var Qtd_L_pSala = Number(quantidade_de_lampadas.value)
+        var PdL = Number(potencia.value)
+        var Qtd_Salas = Number(salas.value)
+
+        var gasto_dia = (Horas_pDia*Pp_KW)*((Qtd_L_pSala*Qtd_Salas*PdL)/1000)
+        var gasto_semana = gasto_dia * diasAtivos_semana
+        var gasto_mes = gasto_semana * 4
+        var gasto_ano = gasto_mes * 12
+
+        var media = (1.0 + 0.65 + 0.3) / 3
+        var Pp_KW_LighTech = Pp_KW * media
+
+        var Ngasto_dia = (Horas_pDia*Pp_KW_LighTech)*((Qtd_L_pSala*Qtd_Salas*PdL)/1000)
+        var Ngasto_semana = Ngasto_dia * diasAtivos_semana
+        var Ngasto_mes = Ngasto_semana * 4
+        var Ngasto_ano = Ngasto_mes * 12
+
+        var lucro_anual = gasto_ano - Ngasto_ano
+        var lucro_mensal = gasto_mes - Ngasto_mes
+
+        exibir.innerHTML = `o seu gasto por mês atualmente é R$${gasto_mes.toFixed(2)} e anualmente ele fica em R$${gasto_ano.toFixed(2)},contudo com nosso sistema,conseguimos reduzir seus gastos mensais para R$${Ngasto_mes.toFixed(2)} e anual para R$${Ngasto_ano.toFixed(2)}.<br> Dessa forma o lucro mensal seria de R$${lucro_mensal.toFixed(2)} e seu lucro anual sera de R$${lucro_anual.toFixed(2)}.`
+        lucro.innerHTML = `Dessa forma o lucro mensal seria de R$${lucro_mensal.toFixed(2)} e seu lucro anual sera de R$${lucro_anual.toFixed(2)}.`
+        verificacao.innerHTML=`${Pp_KW}<br>${diasAtivos_semana}<br>${Horas_pDia}<br>${Qtd_L_pSala}<br>${Qtd_Salas}<br>${media}<br><br>${gasto_dia}<br>${gasto_semana}<br>${gasto_mes}<br>${gasto_ano}<br>${media}<br>${Pp_KW_LighTech}<br>${Ngasto_dia}<br>${Ngasto_semana}<br>${Ngasto_mes}<br>${Ngasto_ano}<br>${lucro_anual}<br>${lucro_mensal}<br>`
+    }
+        </script>
