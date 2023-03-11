@@ -18,7 +18,7 @@
     <div id="exibir"></div><br>
     <div id="lucro"></div>
     <div id="verificacao"></div>
-    <button onclick="efetuar()"> calcular </button>
+    <button onclick="efetuar()"> calcular </button><br>
     
 </body>
 </html>
@@ -54,6 +54,6 @@
 
         exibir.innerHTML = `o seu gasto por mês atualmente é R$${gasto_mes.toFixed(2)} e anualmente ele fica em R$${gasto_ano.toFixed(2)},contudo com nosso sistema,conseguimos reduzir seus gastos mensais para R$${Ngasto_mes.toFixed(2)} e anual para R$${Ngasto_ano.toFixed(2)}.<br> Dessa forma o lucro mensal seria de R$${lucro_mensal.toFixed(2)} e seu lucro anual sera de R$${lucro_anual.toFixed(2)}.`
         lucro.innerHTML = `Dessa forma o lucro mensal seria de R$${lucro_mensal.toFixed(2)} e seu lucro anual sera de R$${lucro_anual.toFixed(2)}.`
-        verificacao.innerHTML=`${Pp_KW}<br>${diasAtivos_semana}<br>${Horas_pDia}<br>${Qtd_L_pSala}<br>${Qtd_Salas}<br>${media}<br><br>${gasto_dia}<br>${gasto_semana}<br>${gasto_mes}<br>${gasto_ano}<br>${media}<br>${Pp_KW_LighTech}<br>${Ngasto_dia}<br>${Ngasto_semana}<br>${Ngasto_mes}<br>${Ngasto_ano}<br>${lucro_anual}<br>${lucro_mensal}<br>`
+       // verificacao.innerHTML=`${Pp_KW}<br>${diasAtivos_semana}<br>${Horas_pDia}<br>${Qtd_L_pSala}<br>${Qtd_Salas}<br>${media}<br><br>${gasto_dia}<br>${gasto_semana}<br>${gasto_mes}<br>${gasto_ano}<br>${media}<br>${Pp_KW_LighTech}<br>${Ngasto_dia}<br>${Ngasto_semana}<br>${Ngasto_mes}<br>${Ngasto_ano}<br>${lucro_anual}<br>${lucro_mensal}<br>`
     }
         </script>
